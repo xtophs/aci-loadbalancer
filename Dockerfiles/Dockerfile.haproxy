@@ -1,0 +1,10 @@
+FROM haproxy
+
+RUN apt-get update -y && apt-get install cifs-utils -y
+RUN mkdir /code
+
+COPY ./scripts/run-haproxy.sh /code/run-haproxy.sh
+RUN chmod 777 /code/run-haproxy.sh
+CMD [ "/code/run-haproxy.sh"]
+
+

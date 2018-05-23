@@ -1,0 +1,10 @@
+FROM nginx
+
+RUN apt-get update -y && apt-get install cifs-utils -y
+RUN mkdir /code
+
+COPY ./scripts/run-nginx.sh /code/run-nginx.sh
+RUN chmod 777 /code/run-nginx.sh
+CMD [ "/code/run-nginx.sh"]
+
+
